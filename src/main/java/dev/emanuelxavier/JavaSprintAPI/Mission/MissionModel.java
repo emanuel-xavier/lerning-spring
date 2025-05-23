@@ -3,6 +3,7 @@ package dev.emanuelxavier.JavaSprintAPI.Mission;
 import java.util.List;
 
 import dev.emanuelxavier.JavaSprintAPI.Player.PlayerModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,9 +22,13 @@ import lombok.NoArgsConstructor;
 public class MissionModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private Long id;
 
+  @Column(name = "name", nullable = false)
   private String name;
+
+  @Column(name = "min_lvl")
   private int min_lvl;
 
   @OneToMany(mappedBy = "missions")

@@ -23,14 +23,16 @@ import lombok.NoArgsConstructor;
 public class PlayerModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private long id;
 
-  @Column(unique = true, nullable = false)
+  @Column(name = "username", unique = true, nullable = false)
   private String username;
 
-  @Column(unique = true, nullable = false)
+  @Column(name = "email", unique = true, nullable = false)
   private String email;
 
+  @Column(name = "min_lvl")
   private int min_lvl;
 
   @ManyToOne
