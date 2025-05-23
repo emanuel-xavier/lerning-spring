@@ -31,6 +31,6 @@ public class MissionModel {
   @Column(name = "min_lvl")
   private int min_lvl;
 
-  @OneToMany(mappedBy = "missions")
+  @OneToMany(mappedBy = "mission")
   private List<PlayerModel> participants;
 }
