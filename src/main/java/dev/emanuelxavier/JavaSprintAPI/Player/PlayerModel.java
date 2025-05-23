@@ -10,9 +10,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_user")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class PlayerModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,54 +33,5 @@ public class PlayerModel {
   @ManyToOne
   @JoinColumn(name = "missions_id")
   private MissionModel mission;
-
-  public PlayerModel() {
-  }
-
-  public PlayerModel(String username, String email, int min_lvl, long id) {
-    this.username = username;
-    this.email = email;
-    this.min_lvl = min_lvl;
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public int getMin_lvl() {
-    return min_lvl;
-  }
-
-  public void setMin_lvl(int min_lvl) {
-    this.min_lvl = min_lvl;
-  }
-
-  public MissionModel getMission() {
-    return mission;
-  }
-
-  public void setMission(MissionModel mission) {
-    this.mission = mission;
-  }
 
 }

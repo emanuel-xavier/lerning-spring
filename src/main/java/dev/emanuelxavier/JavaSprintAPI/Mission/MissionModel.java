@@ -9,9 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_missions")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissionModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +28,4 @@ public class MissionModel {
 
   @OneToMany(mappedBy = "missions")
   private List<PlayerModel> participants;
-
-  public MissionModel() {
-  }
-
-  public MissionModel(String name, int min_lvl) {
-    this.name = name;
-    this.min_lvl = min_lvl;
-  }
 }
