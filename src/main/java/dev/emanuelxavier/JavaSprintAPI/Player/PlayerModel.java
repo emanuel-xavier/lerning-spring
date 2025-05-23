@@ -32,8 +32,8 @@ public class PlayerModel {
   @Column(name = "email", unique = true, nullable = false)
   private String email;
 
-  @Column(name = "min_lvl")
-  private int min_lvl;
+  @Column(name = "lvl")
+  private int lvl;
 
   @ManyToOne
   @JoinColumn(name = "missions_id")
