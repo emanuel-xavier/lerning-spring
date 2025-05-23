@@ -3,6 +3,7 @@ package dev.emanuelxavier.JavaSprintAPI.Player;
 import java.util.List;
 
 import dev.emanuelxavier.JavaSprintAPI.Mission.MissionModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +25,10 @@ public class PlayerModel {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
+  @Column(unique = true, nullable = false)
   private String username;
 
+  @Column(unique = true, nullable = false)
   private String email;
 
   private int min_lvl;
