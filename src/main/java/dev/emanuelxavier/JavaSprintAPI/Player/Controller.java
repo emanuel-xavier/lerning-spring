@@ -1,15 +1,38 @@
 package dev.emanuelxavier.JavaSprintAPI.Player;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping(path = "player")
 public class Controller {
 
-  @GetMapping("")
-  public String greetings() {
-    return "Hello, world";
+  @PostMapping("/create")
+  public String create() {
+    return "";
+  }
+
+  @GetMapping("/list")
+  public String list() {
+    return "";
+  }
+
+  @GetMapping("/player")
+  public String searchByID() {
+    return "";
+  }
+
+  @PutMapping("/player")
+  public String update() {
+    return "";
+  }
+
+  @DeleteMapping("/player")
+  public String delete() {
+    return "";
   }
 }
