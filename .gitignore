@@ -34,3 +34,6 @@ build/
 
 # Enviromnet
 .env
+
+# h2 DB
+data/
