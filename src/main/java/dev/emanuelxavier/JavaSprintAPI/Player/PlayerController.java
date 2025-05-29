@@ -1,7 +1,6 @@
 package dev.emanuelxavier.JavaSprintAPI.Player;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,8 +41,8 @@ public class PlayerController {
     return "";
   }
 
-  @DeleteMapping("/player")
-  public String delete() {
-    return "";
+  @DeleteMapping("/{id}")
+  public void deleteById(@PathVariable Long id) {
+    playserService.deleteById(id);
   }
 }

@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "b98a11ee-d904-4e63-ac5e-ecc34a78966b",
+		"name": "batismo-banco-de-ninjas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31159879"
+	},
+	"item": [
+		{
+			"name": "List Players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/player/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"player",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/player/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"player",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"adsd\",\n  \"email\": \"asddddd\",\n  \"lvl\": 51,\n  \"mission\": {\n    \"id\": 1\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/player/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"player",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
