@@ -26,7 +26,7 @@ public class PlayerModel {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private long id;
+  private Long id;
 
   @Column(name = "username", unique = true, nullable = false)
   private String username;
@@ -38,7 +38,7 @@ public class PlayerModel {
   private int lvl;
 
   @ManyToOne
-  @JoinColumn(name = "missions_id")
+  @JoinColumn(name = "missions_id", nullable = true)
   @JsonIgnore
   private MissionModel mission;
 
