@@ -1,9 +1,11 @@
 package dev.emanuelxavier.JavaSprintAPI.Player;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +31,9 @@ public class PlayerController {
     return playserService.list();
   }
 
-  @GetMapping("/player")
-  public String searchByID() {
-    return "";
+  @GetMapping("/{id}")
+  public PlayerModel findByID(@PathVariable Long id) {
+    return playserService.findByID(id);
   }
 
   @PutMapping("/player")
