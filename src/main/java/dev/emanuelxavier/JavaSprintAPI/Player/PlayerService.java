@@ -23,4 +23,8 @@ public class PlayerService {
     return player.orElse(null);
   }
 
+  public PlayerModel create(PlayerModel player) {
+    return playerRepository.save(player);
+  }
+
 }
