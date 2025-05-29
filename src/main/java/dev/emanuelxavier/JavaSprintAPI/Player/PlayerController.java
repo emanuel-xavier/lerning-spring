@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/player")
-public class Controller {
+public class PlayerController {
 
   private PlayerService playserService;
 
-  public Controller(PlayerService playserService) {
+  public PlayerController(PlayerService playserService) {
     this.playserService = playserService;
   }
 
