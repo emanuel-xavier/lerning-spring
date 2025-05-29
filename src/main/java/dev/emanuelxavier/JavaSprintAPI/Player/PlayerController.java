@@ -36,9 +36,9 @@ public class PlayerController {
     return playserService.findByID(id);
   }
 
-  @PutMapping("/player")
-  public String update() {
-    return "";
+  @PutMapping("/{id}")
+  public PlayerModel update(@PathVariable Long id, @RequestBody PlayerModel newPlayer) {
+    return playserService.update(id, newPlayer);
   }
 
   @DeleteMapping("/{id}")

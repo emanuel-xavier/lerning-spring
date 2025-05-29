@@ -1,7 +1,5 @@
 package dev.emanuelxavier.JavaSprintAPI.Player;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import dev.emanuelxavier.JavaSprintAPI.Mission.MissionModel;

@@ -31,4 +31,13 @@ public class PlayerService {
     playerRepository.deleteById(id);
   }
 
+  public PlayerModel update(Long id, PlayerModel newPlayer) {
+    if (!playerRepository.existsById(id)) {
+      return null;
+    }
+
+    newPlayer.setId(id);
+    return playerRepository.saveAndFlush(newPlayer);
+  }
+
 }
