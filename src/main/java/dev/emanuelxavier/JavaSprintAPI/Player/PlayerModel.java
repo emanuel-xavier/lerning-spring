@@ -2,6 +2,8 @@ package dev.emanuelxavier.JavaSprintAPI.Player;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import dev.emanuelxavier.JavaSprintAPI.Mission.MissionModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +39,7 @@ public class PlayerModel {
 
   @ManyToOne
   @JoinColumn(name = "missions_id")
+  @JsonIgnore
   private MissionModel mission;
 
 }
