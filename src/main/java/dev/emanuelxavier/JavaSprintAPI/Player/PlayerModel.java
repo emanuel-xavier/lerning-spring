@@ -40,4 +40,6 @@ public class PlayerModel {
   @JsonIgnore
   private MissionModel mission;
 
+  @Column(name = "rank")
+  private String rank;
 }
