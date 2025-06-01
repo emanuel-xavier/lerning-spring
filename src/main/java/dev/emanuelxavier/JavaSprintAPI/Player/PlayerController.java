@@ -22,22 +22,22 @@ public class PlayerController {
   }
 
   @PostMapping("/create")
-  public PlayerModel create(@RequestBody PlayerModel player) {
+  public PlayerDTO create(@RequestBody PlayerDTO player) {
     return playserService.create(player);
   }
 
   @GetMapping("/list")
-  public List<PlayerModel> list() {
+  public List<PlayerDTO> list() {
     return playserService.list();
   }
 
   @GetMapping("/{id}")
-  public PlayerModel findByID(@PathVariable Long id) {
+  public PlayerDTO findByID(@PathVariable Long id) {
     return playserService.findByID(id);
   }
 
   @PutMapping("/{id}")
-  public PlayerModel update(@PathVariable Long id, @RequestBody PlayerModel newPlayer) {
+  public PlayerDTO update(@PathVariable Long id, @RequestBody PlayerDTO newPlayer) {
     return playserService.update(id, newPlayer);
   }
 
