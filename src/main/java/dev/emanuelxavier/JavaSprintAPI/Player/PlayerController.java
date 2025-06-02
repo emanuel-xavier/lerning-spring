@@ -2,6 +2,8 @@ package dev.emanuelxavier.JavaSprintAPI.Player;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,27 +24,50 @@ public class PlayerController {
   }
 
   @PostMapping("/create")
-  public PlayerDTO create(@RequestBody PlayerDTO player) {
-    return playserService.create(player);
+  public ResponseEntity<String> create(@RequestBody PlayerDTO player) {
+    PlayerDTO playerDTO = playserService.create(player);
+    return ResponseEntity.status(HttpStatus.CREATED)
+        .body("playser created with id:" + playerDTO.getId());
   }
 
   @GetMapping("/list")
-  public List<PlayerDTO> list() {
-    return playserService.list();
+  public ResponseEntity<List<PlayerDTO>> list() {
+    List<PlayerDTO> players = playserService.list();
+
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(players);
   }
 
   @GetMapping("/{id}")
-  public PlayerDTO findByID(@PathVariable Long id) {
-    return playserService.findByID(id);
+  public ResponseEntity<?> findByID(@PathVariable Long id) {
+    PlayerDTO player = playserService.findByID(id);
+    if (player == null) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not found");
+    }
+
+    return ResponseEntity.ok(player);
   }
 
   @PutMapping("/{id}")
-  public PlayerDTO update(@PathVariable Long id, @RequestBody PlayerDTO newPlayer) {
-    return playserService.update(id, newPlayer);
+  public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PlayerDTO newPlayer) {
+    PlayerDTO player = playserService.update(id, newPlayer);
+
+    if (player == null) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not found");
+    }
+
+    return ResponseEntity.ok(player);
   }
 
   @DeleteMapping("/{id}")
-  public void deleteById(@PathVariable Long id) {
+  public ResponseEntity<String> deleteById(@PathVariable Long id) {
+    if (playserService.findByID(id) == null) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body("player with id " + id + " not found");
+    }
+
     playserService.deleteById(id);
+    return ResponseEntity.ok("player with id " + id + " was deleted successfully");
+
   }
 }
