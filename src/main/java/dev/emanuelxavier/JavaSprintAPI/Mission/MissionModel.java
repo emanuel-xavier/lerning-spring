@@ -29,7 +29,7 @@ public class MissionModel {
   private String name;
 
   @Column(name = "min_lvl")
-  private int min_lvl;
+  private int minLvl;
 
   @OneToMany(mappedBy = "mission")
   private List<PlayerModel> participants;
