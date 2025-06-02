@@ -1,5 +1,6 @@
 package dev.emanuelxavier.JavaSprintAPI.Player;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public class PlayerService {
   private PlayerRepository playerRepository;
   private PlayerMapper playerMapper;
 
+  @Autowired
   public PlayerService(PlayerRepository playerRepository, PlayerMapper playerMapper) {
     this.playerRepository = playerRepository;
     this.playerMapper = playerMapper;
@@ -50,5 +52,12 @@ public class PlayerService {
     updatedPlayer = playerRepository.save(updatedPlayer);
 
     return playerMapper.map(updatedPlayer);
+  }
+
+  public List<PlayerDTO> findAllById(List<Long> ids) {
+    List<PlayerModel> players = playerRepository.findAllById(ids);
+    return players.stream()
+        .map(playerMapper::map)
+        .collect(Collectors.toList());
   }
 }
